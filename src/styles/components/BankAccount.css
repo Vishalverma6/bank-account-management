@@ -1,0 +1,87 @@
+
+.bank-container {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 12px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bank-heading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.bank-input-group {
+    margin-bottom: 1.2rem;
+}
+
+.bank-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.required {
+    color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.submit-button,
+.cancel-button {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.submit-button {
+    background-color: #3b82f6;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #2563eb;
+}
+
+.cancel-button {
+    background-color: #e5e7eb;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+    background-color: #d1d5db;
+}

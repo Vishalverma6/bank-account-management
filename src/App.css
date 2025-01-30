@@ -1,0 +1,73 @@
+.app {
+  width:screen;
+  min-height: screen;
+  background: linear-gradient(to right, #e0f7fa, #bbdefb); ;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8d7da;
+  color: #721c24;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.error-message {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.error-details {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.error-container a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.error-container a:hover {
+  text-decoration: underline;
+}

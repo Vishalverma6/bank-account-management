@@ -1,0 +1,104 @@
+/* Navbar container styles */
+.navbar-container {
+    display: flex;
+    background-color: darkslategray;
+    padding: 10px px;
+    color: white;
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Center items vertically */
+    width: 100%;
+}
+
+.auth{
+    margin-right: 200px;
+}
+@media (max-width:480px) {
+   .auth{
+    margin-right: 20px;
+   }
+    
+}
+@media (max-width: 480px) {
+    .navbar-container {
+         /* Stretch items to fill the width */
+        padding: 10px; /* Adjust padding for mobile */
+    }
+    
+    /* Navbar list styles */
+    .navbar-list {
+        display: flex;
+        
+        align-items: stretch; 
+        
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar-item {
+        width: 100%; /* Make each item take up the full width */
+        margin: 5px 0;
+        text-align: center; /* Center the text for each item */
+    }
+
+    .navbar-link {
+        width: 100%; /* Make the link take up the full width */
+        padding: 10px; /* Add more padding for better usability on mobile */
+        text-align: center; /* Center the text within the link */
+    }
+
+    /* Adjust buttons */
+    .navbar-container button {
+        width: 100%; /* Make buttons take up the full width */
+        padding: 12px;
+        margin-left: 0; /* Remove margin on the left for full-width buttons */
+    }
+}
+
+.navbar-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    margin: 0 15px;
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border: 1px solid dimgray;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px;
+}
+
+.navbar-link:hover {
+    background-color: gray;
+    color: lightgreen;
+}
+
+.navbar-link-active {
+    background-color: lightgreen;
+    color: darkslategray;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.navbar-container button {
+    background-color: gray;
+    color: white;
+    border: 1px solid dimgray;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-container button:hover {
+    background-color: lightgreen;
+    color: darkslategray;
+}

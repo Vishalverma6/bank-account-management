@@ -1,0 +1,67 @@
+/* Styling for the form */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 6px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+/* Styling for the input */
+.search-input {
+    width: 80%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #4C9AFF;
+}
+
+/* Styling for the button container */
+.button-container {
+    display: flex;
+    gap: 15px;
+}
+
+/* Styling for the search button */
+.search-button {
+    padding: 12px 20px;
+    background-color: #4C9AFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #3a8ecf;
+}
+
+/* Styling for the reset button */
+.reset-button {
+    padding: 12px 20px;
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+    background-color: #ccc;
+}

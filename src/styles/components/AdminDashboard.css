@@ -1,0 +1,96 @@
+.admin-dashboard-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+}
+
+.no-accounts {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+.bank-account-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Show 3 cards per row on large screens */
+    gap: 20px; /* Space between grid items */
+    margin-top: 20px;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 1024px) {
+    .bank-account-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .bank-account-list {
+        grid-template-columns: 1fr; /* 1 card per row on smaller screens */
+    }
+}
+
+.bank-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.bank-card:hover {
+    transform: translateY(-5px); /* Hover effect */
+}
+
+.bank-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin-bottom: 15px;
+}
+
+.bank-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+}
+
+.bank-card-body {
+    font-size: 16px;
+    color: #555;
+}
+
+.bank-card-body p {
+    margin: 10px 0;
+}
+.holder-name{
+    color: blue;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.bank-card-body strong {
+    color: #333;
+}
+.button{
+    background-color: gray;
+    max-height: 50px;
+    color: black;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover{
+    scale: 1.05;
+}
+.button-container{
+    margin-top: 1px;
+    justify-content: space-around;
+
+    }

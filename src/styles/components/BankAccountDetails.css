@@ -1,0 +1,111 @@
+.bank-details-container {
+    display: grid;
+    background-color: #2c3e50;
+    border-radius: 10px;
+    gap: 20px;
+    padding: 20px;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .bank-card {
+    background: linear-gradient(135deg, #f0f4f8, #e3e9f1);
+    border-radius: 16px;
+    padding: 20px;
+    color: #2c3e50;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
+  .bank-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .bank-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0077ff;
+  }
+  
+  .bank-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-button,
+  .remove-button {
+    background: #0077ff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    transition: background  0.3s;
+  }
+  
+  .edit-button:hover {
+    background: #005bb5;
+  }
+  
+  .remove-button {
+    background: #ff4d4d;
+  }
+  
+  .remove-button:hover {
+    background: #e60000;
+  }
+  
+  .bank-card-body {
+    margin-top: 12px;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .bank-card-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .bank-card-body p {
+    color: #34495e;
+    flex: 1;
+    margin-right: 16px;
+  }
+  
+  .bank-card-body strong {
+    color: #2c3e50;
+  }
+  
+  .bank-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(0, 136, 255, 0.1);
+    transform: rotate(45deg);
+    z-index: 0;
+  }
+  
+  .bank-card * {
+    position: relative;
+    /* z-index: 1; */
+  }
+  .no-account{
+    color: red;
+  }
+  

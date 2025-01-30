@@ -5,12 +5,18 @@ import { useSelector } from 'react-redux';
 import { deleteBankAccount, getUserBankAccount } from '../../../services/operations/bankAccountAPI';
 import toast from 'react-hot-toast';
 import { CiCircleRemove, CiEdit } from 'react-icons/ci';
-import { setBankDetail } from '../../../slices/authSlice';
+import BankAccount from './BankAccount';
 
-const BankAccountDetails = () => {
+
+const BankAccountDetails = ({modalOpen,setModalOpen,setEditBank, editBank}) => {
   const token = useSelector((state) => state.auth.token);
+  
+  const [editData, setEditData] = useState(null)
+
+//   console.log("editData12",editData)
+  
   const bankDetails = useSelector((state) => state.auth.bankDetail);
-  console.log("bankDetails",bankDetails);
+//   console.log("bankDetails",bankDetails);
   const [bankData, setBankData] = useState([]);
 
   const getBankAccount = async () => {
@@ -36,10 +42,20 @@ const BankAccountDetails = () => {
     setLoading(true);
     const response = await deleteBankAccount(data,token);
     setLoading(false);
-    
     getBankAccount()
 
   }
+
+  const editAccount = (data) => {
+    setEditBank(true)
+    setModalOpen(true);
+    setEditData(data);
+    
+  };
+  useEffect(() => {
+    console.log("editBank changed to:", editBank);
+  }, [editBank]);
+  
 
   return (
     <div className="bank-details-container">
@@ -54,7 +70,8 @@ const BankAccountDetails = () => {
           <div className="bank-card-header">
             <p className="bank-name">{data?.bankName}</p>
             <div className="bank-actions">
-              <button className="edit-button">
+              <button onClick={() => editAccount(data)}
+              className="edit-button">
                 <CiEdit /> Edit
               </button>
               <button 
@@ -75,6 +92,14 @@ const BankAccountDetails = () => {
           </div>
         </div>
       )))}
+
+       {modalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <BankAccount editData={editData} editBank={editBank} setEditBank={setEditBank} setModalOpen={setModalOpen} />
+          </div>
+        </div>
+      )}
     
     </div>
   );

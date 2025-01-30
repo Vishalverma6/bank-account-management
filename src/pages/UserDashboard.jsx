@@ -5,9 +5,11 @@ import BankAccountDetails from "../components/core/dashboard/BankAccountDetails"
 
 const UserDashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [editBank, setEditBank] = useState(false);
 
   const clickHandler = () => {
     setModalOpen(true);
+    
   };
 
   return (
@@ -21,16 +23,10 @@ const UserDashboard = () => {
       </h1>
 
       <div className="account-details">
-         <BankAccountDetails/>
+         <BankAccountDetails editBank={editBank} setEditBank={setEditBank}  modalOpen={modalOpen} setModalOpen={setModalOpen}/>
       </div>
 
-      {modalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <BankAccount setModalOpen={setModalOpen} />
-          </div>
-        </div>
-      )}
+      
 
     </div>
   );

@@ -18,7 +18,7 @@ exports.addBankAccount = async(req, res) => {
 
         // fetch the user id
         const userId = req.user.id;
-        console.log("userId",userId)
+        // console.log("userId",userId)
         if(!userId){
             return res.status(404).json({
                 success:false,
@@ -66,7 +66,7 @@ exports.getAllBankAccountOfUser = async(req, res) => {
         }
 
         const allBankAccount = await BankDetails.find({userId});
-        console.log("All bank Account", allBankAccount);
+        // console.log("All bank Account", allBankAccount);
 
         // return response
         return res.status(200).json({
@@ -90,6 +90,7 @@ exports.editBankAccount = async(req, res) => {
     try{
         // fetch the id from req body
         const {id} = req.body;
+        console.log("id",id)
         if(!id){
             return res.status(401).json({
                 success:false,
@@ -99,6 +100,7 @@ exports.editBankAccount = async(req, res) => {
 
         // fetch the user Id fromm req user
         const userId = req.user.id;
+        console.log("userId",userId)
         if(!userId){
             return res.status(401).json({
                 success:false,
@@ -113,6 +115,12 @@ exports.editBankAccount = async(req, res) => {
             accountNumber,
             accountHolderName
         }  = req.body;
+        
+        console.log("ifscCode",ifscCode)
+        console.log("branchName",branchName)
+        console.log("bankName",bankName)
+        console.log("accountNumber",accountNumber)
+        console.log("accountHolderName",accountHolderName)
 
         const updatedBankAccount = await BankDetails.findOneAndUpdate(
             {_id:id, userId:userId},
@@ -126,6 +134,7 @@ exports.editBankAccount = async(req, res) => {
                 message:"Bank Account not Found ",
             })
         }
+        console.log("updatedBankData",updatedBankAccount)
 
         // return response
         return res.status(200).json({

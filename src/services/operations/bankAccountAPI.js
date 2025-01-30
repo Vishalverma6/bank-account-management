@@ -37,7 +37,7 @@ export const addBankAccount = async(data, token) => {
 }
 
 // update the bank Account 
-export const updateBankaccount = async(data, token) => {
+export const updateBankaccount = async(data,token) => {
     const toastId = toast.loading("Loading...");
     let result= null;
     try{

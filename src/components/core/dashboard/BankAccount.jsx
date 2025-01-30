@@ -1,33 +1,62 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import "../../../styles/components/BankAccount.css";
 import toast from 'react-hot-toast';
-import { addBankAccount } from '../../../services/operations/bankAccountAPI';
+import { addBankAccount, updateBankaccount } from '../../../services/operations/bankAccountAPI';
 import { setLoading } from '../../../slices/profileSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBankDetail } from '../../../slices/authSlice';
+import { data } from 'react-router-dom';
 
-const BankAccount = ({ setModalOpen }) => {
-    const [editBank, setEditBank] = useState(false);
+const BankAccount = ({editBank,editData,  setModalOpen }) => {
+    
     const dispatch = useDispatch();
     const token = useSelector((state)=> state.auth.token)
     console.log("token1",token)
     const { register, handleSubmit, reset, setValue, getValues, formState: { errors } } = useForm();
+
+    console.log("editData",editData)
+    useEffect(()=> {
+        if(editBank && editData){
+            setValue("bankName",editData?.bankName);
+            setValue("branchName",editData?.branchName);
+            setValue("accountHolderName",editData?.accountHolderName);
+            setValue("accountNumber",editData?.accountNumber);
+            setValue("ifscCode",editData?.ifscCode);
+        }
+    },[editBank, editData, setValue])
 
     const onSubmit = async(data) => {
         const { confirmAccountNumber, ...bankData } = data;
         
         try {
             setLoading(true);
-            const response = await addBankAccount(bankData, token);
-            toast.success("Bank Account Added");
-            console.log("response",response)
-            dispatch(setBankDetail(response?.data));
+            if(editBank){
+                const response = await updateBankaccount({
+                    id:editData?._id,
+                    ifscCode:bankData?.ifscCode,
+                    branchName:bankData?.branchName,
+                    bankName:bankData?.bankName,
+                    accountNumber:bankData?.accountNumber,
+                    accountHolderName:bankData?.accountHolderName,
+
+                },token)
+                console.log("response ",response)
+                toast.success("Bank Account Updated ");
+                dispatch(setBankDetail(response));
+            }
+            else{
+                const response = await addBankAccount(bankData, token);
+                toast.success("Bank Account Added");
+                console.log("response",response)
+                dispatch(setBankDetail(response?.data));
+            }
             setModalOpen(false);
-            
             setLoading(false);
-        } catch (error) {
-            toast.error("Failed to add bank account");
+            
+        } 
+        catch (error) {
+            toast.error(editBank ? "Failed to update bank account":"Failed to add bank account");
         }
     };
 
